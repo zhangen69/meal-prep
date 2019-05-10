@@ -35,7 +35,17 @@ const router = new Router({
             path: '/join',
             name: 'join',
             component: () => import('./views/Join.vue')
-        }
+        },
+        {
+            path: '/contact-us',
+            name: 'contact',
+            component: () => import('./views/Contact.vue')
+        },
+        {
+            path: '/contact-info',
+            name: 'contact',
+            component: () => import('./views/Contact.vue')
+        },
     ]
 });
 

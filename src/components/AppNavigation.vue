@@ -5,20 +5,22 @@
                 <template v-for="(item, index) in items">
                     <v-list-tile :key="index">
                         <v-list-tile-content>
-                            {{item.title}}
+                            <v-btn flat :to="item.path">{{item.title}}</v-btn>
                         </v-list-tile-content>
                     </v-list-tile>
                     <v-divider :key="`divider-${index}`"></v-divider>
                 </template>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app color="brown darken-4" dark>
+        <v-toolbar app color="primary">
             <v-toolbar-side-icon class="hidden-md-and-up" @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-spacer class="hidden-md-and-up"></v-spacer>
             <router-link to="/">
                 <v-toolbar-title to="/">{{appTitle}}</v-toolbar-title>
             </router-link>
             <v-btn flat class="hidden-sm-and-down" to="/menu">Menu</v-btn>
+            <v-btn flat class="hidden-sm-and-down" to="/contact-us">Contact Us</v-btn>
+            <v-btn flat class="hidden-sm-and-down" to="/contact-info">Contact Info</v-btn>
             <v-spacer class="hidden-sm-and-down"></v-spacer>
             <div v-if="!isAuthenticated" class="hidden-sm-and-down">
                 <v-btn flat to="/sign-in">SIGN IN</v-btn>
@@ -40,7 +42,7 @@ export default {
         return {
             appTitle: 'Meal Prep',
             drawer: false,
-            items: [{ title: 'Menu' }, { title: 'Sign In' }, { title: 'Join' }]
+            items: [{ title: 'Menu', path: '/menu' }, { title: 'Sign In', path: '/sign-in' }, { title: 'Join', path: '/join' }, { title: 'Contact', path: '/contact' }, { title: 'Info', path: '/contact-info'}]
         };
     },
     computed: {
